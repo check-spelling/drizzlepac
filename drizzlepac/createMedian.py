@@ -36,7 +36,7 @@ log = logutil.create_logger(__name__, level=logutil.logging.NOTSET)
 # this is the user access function
 def median(input=None, configObj=None, editpars=False, **inputDict):
     """
-    Create a median image from the seperately drizzled images.
+    Create a median image from the separately drizzled images.
     """
     if input is not None:
         inputDict["input"] = input
@@ -244,7 +244,7 @@ def _median(imageObjectList, paramDict):
             # If an image has zero exposure time we will
             # redefine that value as '1'.  Although this will cause inaccurate
             # scaling of the data to occur in the 'minmed' combination
-            # algorith, this is a necessary evil since it avoids divide by
+            # algorithm, this is a necessary evil since it avoids divide by
             # zero exceptions.  It is more important that the divide by zero
             # exceptions not cause AstroDrizzle to crash in the pipeline than
             # it is to raise an exception for this obviously bad data even

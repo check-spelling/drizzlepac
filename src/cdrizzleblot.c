@@ -81,7 +81,7 @@ ii_bipoly3(const float* coeff /* [len_coeff][len_coeff] */,
     /* loop over the 4 surrounding rows of data calculate the central
        differences at each value of y
 
-       If new data point calculate the central differnences in x for
+       If new data point calculate the central differences in x for
        each y */
     if (nx != nxold || ny != nyold) {
       for (j = 0, index = firstw; j < 4; ++j, index += len_coeff) {
@@ -119,7 +119,7 @@ ii_bipoly3(const float* coeff /* [len_coeff][len_coeff] */,
 
 /**
 Procedure to evaluate a biquintic polynomial.  The array coeff
-contains the coefficents of the 2D interpolant.  The routine assumes
+contains the coefficients of the 2D interpolant.  The routine assumes
 that 0 <= x < p->dnx and 0 <= y < p->dny. The interpolant is evaluated
 using Everett's central difference formula.
 
@@ -668,7 +668,7 @@ interpolate_sinc_(const float* data, const integer_t firstt,
                   struct driz_error_t* error UNUSED_PARAM) {
   const integer_t nconv = INTERPOLATE_SINC_NCONV;
   const integer_t nsinc = (nconv - 1) / 2;
-  /* TODO: This is to match Fortan, but is probably technically less precise */
+  /* TODO: This is to match Fortran, but is probably technically less precise */
   const float halfpi = 1.5707963267948966192f; /* M_PI / 2.0; */
   const float sconst = powf((halfpi / (float)nsinc), 2.0f);
   const float a2 = -0.49670f;

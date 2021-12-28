@@ -22,7 +22,7 @@ class STISInputImage (imageObject):
         # define the cosmic ray bits value to use in the dq array
         self.cr_bits_value = 8192
         self._effGain = 1.
-        self._instrument = self._image["PRIMARY"].header["INSTRUME"]  # this just shows instrument, not detector, detector asigned by subclass
+        self._instrument = self._image["PRIMARY"].header["INSTRUME"]  # this just shows instrument, not detector, detector assigned by subclass
         self.native_units = 'COUNTS'
 
     def getflat(self, chip):
@@ -145,7 +145,7 @@ class CCDInputImage(STISInputImage):
 
         :units: DN
 
-        This should work on a chip, since different chips to be consistant with other
+        This should work on a chip, since different chips to be consistent with other
         detector classes where different chips have different gains.
 
         """

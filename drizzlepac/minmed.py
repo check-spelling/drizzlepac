@@ -1,5 +1,5 @@
 """
-Create an image combination algroithm that chooses between a minimum
+Create an image combination algorithm that chooses between a minimum
 or median image based up bad pixel identification.
 
 :Authors: Christopher Hanley
@@ -10,7 +10,7 @@ or median image based up bad pixel identification.
 #   PROGRAM: numcombine.py
 #   AUTHOR: Christopher Hanley (based upon original code of Anton Koekemoer)
 #   DATE:    February 11, 2004
-#   PURPOSE: Create an image combination algroithm that chooses between
+#   PURPOSE: Create an image combination algorithm that chooses between
 #            a minimum or median image based up bad pixel identification.
 #   HISTORY:
 #      Version 0.1.0: Initial Development -- CJH -- 02/11/04
@@ -19,7 +19,7 @@ or median image based up bad pixel identification.
 #        MDRIZTAB -- CJH/WJH -- 07/08/04
 #      Version 0.1.2: Improve error message handing in the case where
 #        the boxcar convolution step fails.  --CJH -- 10/13/04
-#      Version 0.2.0: The creation of the median image will now more closesly
+#      Version 0.2.0: The creation of the median image will now more closely
 #        replicate the IRAF IMCOMBINE behavior of nkeep = 1 and nhigh = 1.
 #        -- CJH -- 03/29/05
 #      Version 0.3.0: Rewritten to optimize the code and to bring
@@ -54,7 +54,7 @@ class minmed:
         # median-pixel image, and compare with the minimum.
 
     In this version of the mimmed algorithm we assume that the units of all
-    input data is electons.
+    input data is electrons.
     """
     def __init__(self,
             imageList,              # list of input data to be combined.
@@ -123,10 +123,10 @@ class minmed:
             # 2) The science data will be summed.
             # 3) In the locations of the summed mask where the sum is 1 less than the
             #    the total number of images, the value of that location in the summed
-            #    sceince image will be used to replace the existing value in the
+            #    science image will be used to replace the existing value in the
             #    existing median_file.
             #
-            # This procuedure is being used to prevent too much data from being thrown
+            # This procedure is being used to prevent too much data from being thrown
             # out of the image.  Take for example the case of 3 input images.  In two
             # of the images the pixel locations have been masked out.  Now, if nhigh
             # is applied there will be no value to use for that position.  However,
@@ -270,7 +270,7 @@ class minmed:
             #      in an illegal boxshape kernel.  The dimensions of the kernel box *MUST*
             #      be integer and greater than zero.
             #
-            #   If the boxcar convolution has failed, try to give a meaningfull explanation
+            #   If the boxcar convolution has failed, try to give a meaningful explanation
             #   as to why based upon the conditionals described above.
 
             if (boxsize <= 0):
@@ -307,7 +307,7 @@ class minmed:
             del(rms_file)
             del(minimum_grow_file)
 
-            # Finally decide whether to use the minimim or the median (in counts/s),
+            # Finally decide whether to use the minimum or the median (in counts/s),
             # based on whether the median is more than 3 sigma above the minimum.
             #
             self.combArrObj = np.where(
@@ -317,7 +317,7 @@ class minmed:
             )
 
         else:
-            # Finally decide whether to use the minimim or the median (in counts/s),
+            # Finally decide whether to use the minimum or the median (in counts/s),
             # based on whether the median is more than 3 sigma above the minimum.
             #
             self.combArrObj = np.where(
@@ -354,7 +354,7 @@ def min_med(images, weight_images, readnoise_list, exptime_list,
 
     .. note::
         In this version of the mimmed algorithm we assume that the units of
-        all input data is electons.
+        all input data is electrons.
 
     Parameters
     ----------
@@ -585,7 +585,7 @@ def min_med(images, weight_images, readnoise_list, exptime_list,
         #      result in an illegal boxshape kernel. The dimensions of the
         #      kernel box *MUST* be integer and greater than zero.
         #
-        #   If the boxcar convolution has failed, try to give a meaningfull
+        #   If the boxcar convolution has failed, try to give a meaningful
         #   explanation as to why based upon the conditionals described above.
         if boxsize <= 0:
             errormsg1 = "############################################################\n"
@@ -620,7 +620,7 @@ def min_med(images, weight_images, readnoise_list, exptime_list,
         )
         del rms_file, minimum_grow_file
 
-    # Finally decide whether to use the minimim or the median (in counts/s),
+    # Finally decide whether to use the minimum or the median (in counts/s),
     # based on whether the median is more than 3 sigma above the minimum.
     combined_array = np.where(
         np.less(minimum_file_weighted, median_rms_file),

@@ -1,4 +1,4 @@
-Function for computing and subtracting (or equalizing/matching) the backgroud
+Function for computing and subtracting (or equalizing/matching) the background
 in input images. The algorithm for sky subtraction can be selected through
 the `skymethod` parameter. This function will update the ``MDRIZSKY`` keyword
 in the headers of the input files.
@@ -248,7 +248,7 @@ Second, two new methods have been introduced: ``'globalmin'`` and
 
 - The ``'match'`` algorithm is somewhat
   similar to the traditional sky subtraction method (`skymethod`\ =\
-  ``'localmin'``\ ) in the sense that it measures the sky indipendently
+  ``'localmin'``\ ) in the sense that it measures the sky independently
   in input images (or detector chips). The major differences are that,
   unlike the traditional method,
 
@@ -342,10 +342,10 @@ Second, two new methods have been introduced: ``'globalmin'`` and
     flat-fielded images thus avoiding the need to perform an additional
     drizzle step to perform distortion correction of input images.
 
-    Initially, the footprint of a chip in an image is aproximated by a
+    Initially, the footprint of a chip in an image is approximate by a
     2D planar rectangle representing the borders of chip's distorted
     image. After applying distortion model to this rectangle and
-    progecting it onto the celestial sphere, it is approximated by
+    projecting it onto the celestial sphere, it is approximated by
     spherical polygons. Footprints of exposures and mosaics are
     computed as unions of such spherical polygons while overlaps
     of image pairs are found by intersecting these spherical polygons.
@@ -397,11 +397,11 @@ Second, two new methods have been introduced: ``'globalmin'`` and
     in sky levels.
 
 **How to use the tasks stand alone interface in your own scripts:**
-  These tasks are designed to work together seemlessly when run in the
+  These tasks are designed to work together seamlessly when run in the
   full ``AstroDrizzle`` interface. More advanced users may wish to create
   specialized scripts for their own datasets, making use of only a subset
   of the predefined ``AstroDrizzle`` tasks, or add additional processing,
-  which may be usefull for their particular data. In these cases,
+  which may be useful for their particular data. In these cases,
   individual access to the tasks is important.
 
 Something to keep in mind is that the full ``AstroDrizzle`` interface will

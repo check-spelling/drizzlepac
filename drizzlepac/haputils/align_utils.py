@@ -186,7 +186,7 @@ class AlignmentTable:
                                               bkg_estimator=self.alignment_pars['bkg_estimator'],
                                               rms_estimator=self.alignment_pars['rms_estimator'],
                                               threshold_flag=self.alignment_pars['threshold'])
-                    log.info("Finished computing revised BACKROUND")
+                    log.info("Finished computing revised BACKGROUND")
                     catimg.build_kernel(fwhmpsf)
                     log.info("Finished determining revised kernel")
 
@@ -1051,7 +1051,7 @@ def interpret_fit_rms(tweakwcs_output, reference_catalog):
             tinfo = item.meta['fit_info']
             # When status = FAILED (fit failed) or REFERENCE (relative alignment done with first image
             # as the reference), skip to the beginning of the loop as there is no 'fit_info'.
-            if tinfo['status'] != 'SUCCESS' or (tinfo['status'] == 'SUCCESSS' and \
+            if tinfo['status'] != 'SUCCESS' or (tinfo['status'] == 'SUCCESS' and \
                 'fitmask' not in tinfo):
                 continue
             # Make sure to store data for any particular group_id only once.
@@ -1341,7 +1341,7 @@ def register_photutils_function(name):
 # Based on Octave implementation by: Benjamin Eltzner, 2014 <b.eltzner@gmx.de>         #
 # Octave/Matlab normxcorr2 implementation in python 3.5                                #
 # Details:                                                                             #
-# Normalized cross-correlation. Similiar results upto 3 significant digits.            #
+# Normalized cross-correlation. Similar results upto 3 significant digits.             #
 # https://github.com/Sabrewarrior/normxcorr2-python/master/norxcorr2.py                #
 # http://lordsabre.blogspot.ca/2017/09/matlab-normxcorr2-implemented-in-python.html    #
 ########################################################################################

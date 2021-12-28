@@ -21,7 +21,7 @@
         "-c WFC3/IR"
 
         - The '-d' option allows users to specify the Min and max date (inclusive) of dateobs search
-        window. The exected date format is "YYYY-MM-DD". Min amd max dates should be separated by a space;
+        window. The expected date format is "YYYY-MM-DD". Min amd max dates should be separated by a space;
         example: "-d 2011-06-15 2019-04-21"
 
         - The '-e' option allows users to specify an exposure name to search for. The expected format is a
@@ -29,7 +29,7 @@
 
         - The '-f' option allows users to specify filter name(s) to search for. To search for ACS
         observations that use two spectral elements, enter the names of both spectral elements in any order
-        seperated by a dash. The expected format is filter name(s), lower-case; Example ACS two-spectral
+        separated by a dash. The expected format is filter name(s), lower-case; Example ACS two-spectral
         element input: "-f f606w-pol60v", Example single-filter input: "-f f814w"
 
         - The '-m' option allows users to specify the name of the master observations .csv file containing
@@ -42,11 +42,11 @@
         - The '-s' option allows users to specify the skycell name to search for. Only full skycell names are
         accepted. Expected format is lowercase; Example: "-s p0797x13y05"
 
-        - The '-v' opition allows users to visualize the footprints of the images returned by the query
+        - The '-v' option allows users to visualize the footprints of the images returned by the query
         results. If turned on, footprint fits files will be generated that show the footprints of the images
         returned by the query result in the skycell in which they reside. Additional footprint images are
         created for each skycell-instrument/detector/filter combination present in the query results. This
-        input arguemnt does not expect any additinal information. Simply specifying "-v" turns on the
+        input argument does not expect any additional information. Simply specifying "-v" turns on the
         footprint generation.
 
         - The '--output_columns' option allows users to specify which columns to display (and optionally
@@ -62,7 +62,7 @@
 
     Search for all ACS/WFC F814W observations located in skycell p0123x45y67 taken during 2015; return
     date and exposure name; sort by date; write results to file 'query_results.csv'; generate footprint
-    visualization footprint fits imaages
+    visualization footprint fits images
 
         >>> search_skyframes -c ACS/WFC -d 2015-01-01 2015-12-31 -f f814w -s p0123x45y67 -o query_results.csv -v --output_columns dateobs, exposure --output_sorting dateobs
     """

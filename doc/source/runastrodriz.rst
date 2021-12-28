@@ -161,7 +161,7 @@ The pipeline processing code starts out by looking to see whether the user has d
 Values that can be provided for setting these variables are:
 
   * 'on', 'yes', 'true': Any of these values will turn **on** the processing controlled by the variable
-  * 'off', 'no', 'false': Any of these values will turn **off** the processing controleed by the variable
+  * 'off', 'no', 'false': Any of these values will turn **off** the processing controlled by the variable
 
 By default, all the processing steps are turned **on** during pipeline processing in order to maximize the chances of aligning the data as closely as possible to the absolute astrometry standard coordinate system defined through the use of the GAIA catalogs.  However, these controls are provided to support those observations which would not be suitable for such alignment, including observations of single sources.
 
@@ -574,7 +574,7 @@ these types of solutions fail to account for sources of astrometric error which
 can still affect the observations and result in offsets from the GAIA system due to
 updates in the distortion calibration for the instruments or uncertainties in
 the position of the detectors field-of-view relative to the Fine Guidance Sensors
-(FGS) and the guide stars used for taking the observaitons.
+(FGS) and the guide stars used for taking the observations.
 
 The only way to correct for those effects remains to identify sources from the
 observations and perform a fit to the GAIA catalog directly.  This is called an
@@ -588,7 +588,7 @@ success and tries to perform this ``a posteriori`` fit on all observations.
 
 Copying the Observations
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-Copies of the observaions are made in a sub-directory named after the input
+Copies of the observations are made in a sub-directory named after the input
 file used to start the processing with the convention:
 
    <rootname>_aposteriori

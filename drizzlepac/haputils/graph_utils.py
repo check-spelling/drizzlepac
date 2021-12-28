@@ -75,7 +75,7 @@ class HAPFigure:
         Glyph attributes are also declared and set to default values.
 
         Careful: grid plot will collect all the tools onto one toolbar, but a tool
-        assciated with only one figure, will only work for that one figure.
+        associated with only one figure, will only work for that one figure.
 
         Parameters
         ----------
@@ -202,7 +202,7 @@ class HAPFigure:
                 data of interest where the data can be referenced by column name.
 
             name : str, optional
-                Indentification of the glyph - useful when using HoverTool where the
+                Identification of the glyph - useful when using HoverTool where the
                 value of the name is a dictionary key as the value itself is variable.
                 TODO: No longer works at this time.
 
@@ -213,7 +213,7 @@ class HAPFigure:
                 `colormap` column in the input data `source`.  The default value for
                 this value is "colormap".  *** In particular, 'colormap' should be used when
                 wanting emphasize the data values which correspond to each instrument as this
-                will ensure consistency in all of the grahics.  Note: When 'colormap' is used,
+                will ensure consistency in all of the graphics.  Note: When 'colormap' is used,
                 the legend will be set by 'legend_group'.
 
             legend_label : str, optional

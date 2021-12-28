@@ -63,7 +63,7 @@ def hff_parameter_manager(hff_inputs,qc_json_filename):
     log.info("Summary of original hla_flag_filter parameters{}".format(extra_text_string))
     if qc_json_filename:
         log.info("NOTE: updated parameters listed with a exclamation point")
-    resursive_print_all_nested_dict_values(hff_params,new_params)
+    recursive_print_all_nested_dict_values(hff_params,new_params)
 
     if qc_json_filename:
         hff_inputs['param_dict']['quality control'] = new_params
@@ -101,7 +101,7 @@ def preserve_orig_files(hff_inputs,source_path,dest_path,verbose):
             if len(found_files) > 0:
                 files_to_move = files_to_move + found_files
 
-        found_files = glob.glob("*_comparision_plots.pdf")
+        found_files = glob.glob("*_comparison_plots.pdf")
         if len(found_files) > 0:
             files_to_move = files_to_move + found_files
         if not os.path.exists(dest_path):
@@ -127,17 +127,17 @@ def preserve_orig_files(hff_inputs,source_path,dest_path,verbose):
 
 # ----------------------------------------------------------------------------------------------------------------------
 
-def resursive_print_all_nested_dict_values(old_dict,new_dict,recursion_level=0,recursion_limit=20):
-    """recursively print all elemnets of dictonary and highlight any changes.
+def recursive_print_all_nested_dict_values(old_dict,new_dict,recursion_level=0,recursion_limit=20):
+    """recursively print all elements of dictionary and highlight any changes.
     NOTE: This is a recursive subroutine.
 
     Parameters
     ----------
     old_dict : dictionary
-        origional dictionary whose elements will be printed and compared to corresponding new_dict elements
+        original dictionary whose elements will be printed and compared to corresponding new_dict elements
 
     new_dict : dictionary
-        new dictioanry whose elements will be printed and compared to corresponding old_dict elements
+        new dictionary whose elements will be printed and compared to corresponding old_dict elements
 
     recursion_level : int, optional
         current recursive depth. if not explicitly specified, the default value is 0.
@@ -157,7 +157,7 @@ def resursive_print_all_nested_dict_values(old_dict,new_dict,recursion_level=0,r
         if isinstance(old_dict[item], dict):
             log.info("  {}{}\u2798".format("     "*recursion_level,item))
             recursion_level+=1
-            resursive_print_all_nested_dict_values(old_dict[item],new_dict[item],recursion_level=recursion_level)
+            recursive_print_all_nested_dict_values(old_dict[item],new_dict[item],recursion_level=recursion_level)
             recursion_level-=1
         else:
             if old_dict[item] == new_dict[item]:
@@ -168,8 +168,8 @@ def resursive_print_all_nested_dict_values(old_dict,new_dict,recursion_level=0,r
 # ----------------------------------------------------------------------------------------------------------------------
 
 def run_compare_sourcelists(hff_inputs, log_level):
-    """locate HLA classic image and sourcelists, convert HLA classic sorucelist X, Y, RA and Dec to HAP ref frame for
-    apples-to-apples comparision, and run comparision code
+    """locate HLA classic image and sourcelists, convert HLA classic sourcelist X, Y, RA and Dec to HAP ref frame for
+    apples-to-apples comparison, and run comparison code
 
     Parameters
     ----------
@@ -236,7 +236,7 @@ def run_compare_sourcelists(hff_inputs, log_level):
     log.info("HAP catalog:                 {}".format(os.path.basename(hap_sourcelist_name)))
     log.info("HLA Classic catalog:         {}".format(os.path.basename(updated_hla_sourcelist_name)))
 
-    # once all file exist checks are passed, execute sourcelist comparision
+    # once all file exist checks are passed, execute sourcelist comparison
 
     return_status = compare_sourcelists.comparesourcelists([updated_hla_sourcelist_name, hap_sourcelist_name],
                                                            [hla_imgname, hap_imgname], good_flag_sum=255,

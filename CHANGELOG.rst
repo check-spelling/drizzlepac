@@ -268,7 +268,7 @@ were also implemented.
   for exposures with 'drz' in the rootname. [#523]
 
 - Implement multiple levels of verification for the drizzle products generated
-  during pipeline processing (using runastrodriz); including overlapp difference
+  during pipeline processing (using runastrodriz); including overlap difference
   computations [#520], and magnitude correlation [#512].
 
 - Replace alignimages module with O-O based align [#512]
@@ -309,7 +309,7 @@ aligned and combined images with correctly specified WCS keywords:
   crash while reading shift files. [#448]
 
 - Migration of the HAP portion of the package to an object-oriented
-  implemenation. [#427]
+  implementation. [#427]
 
 - Added support for providing HSTWCS object as input to 'final_refimage'
   or 'single_refimage' parameter. [#426]
@@ -355,7 +355,7 @@ aligned and combined images with correctly specified WCS keywords:
 - Now ``tolerance`` (in ``tweakreg``) is no longer ignored when ``use2dhist``
   is enabled. [#286]
 
-- Fixed VS compiler errors with pointer artithmetic on void pointers. [#273]
+- Fixed VS compiler errors with pointer arithmetic on void pointers. [#273]
 
 - Fix logic so that code no longer tries to update headers when no valid fit
   could be determined. [#241]

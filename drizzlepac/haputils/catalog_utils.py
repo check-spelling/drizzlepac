@@ -349,7 +349,7 @@ class CatalogImage:
                 # the larger of the two values.
                 if (bkg_rms < minimum_rms):
                     bkg_rms = minimum_rms
-                    log.info("Mimimum RMS of input based upon the readnoise, gain, number of exposures, and total exposure time: {}".format(minimum_rms))
+                    log.info("Minimum RMS of input based upon the readnoise, gain, number of exposures, and total exposure time: {}".format(minimum_rms))
                     log.info("Sigma-clipped RMS has been updated - Background mean: {}  median: {}  rms: {}".format(bkg_mean, bkg_median, bkg_rms))
                     log.info("")
 
@@ -823,7 +823,7 @@ class HAPCatalogBase:
         Returns
         -------
         data_table : QTable
-            Table of source properties updatd to contain state metadata
+            Table of source properties updated to contain state metadata
 
         """
         data_table.meta["h00"] = [" #=================================================================================================="]
@@ -1185,7 +1185,7 @@ class HAPPointCatalog(HAPCatalogBase):
                                                                 epadu=self.gain)
 
         # calculate and add RA and DEC columns to table
-        ra, dec = self.transform_list_xy_to_ra_dec(photometry_tbl["X-Center"], photometry_tbl["Y-Center"], self.imgname)  # TODO: replace with all_pix2sky or somthing at a later date
+        ra, dec = self.transform_list_xy_to_ra_dec(photometry_tbl["X-Center"], photometry_tbl["Y-Center"], self.imgname)  # TODO: replace with all_pix2sky or something at a later date
         ra_col = Column(name="RA", data=ra, dtype=np.float64)
         dec_col = Column(name="DEC", data=dec, dtype=np.float64)
         photometry_tbl.add_column(ra_col, index=2)
@@ -1333,9 +1333,9 @@ class HAPPointCatalog(HAPCatalogBase):
 
     def transform_list_xy_to_ra_dec(self, list_of_x, list_of_y, drizzled_image):
         """Transform lists of X and Y coordinates to lists of RA and Dec coordinates
-        This is a temporary solution until somthing like pix2sky or pix2world can be implemented in measure_sources.
+        This is a temporary solution until something like pix2sky or pix2world can be implemented in measure_sources.
 
-        directly lifted from hla classic subroutine hla_sorucelist.Transform_list_xy_to_RA_Dec()
+        directly lifted from hla classic subroutine hla_sourcelist.Transform_list_xy_to_RA_Dec()
 
         Tested.
 
@@ -1583,7 +1583,7 @@ class HAPSegmentCatalog(HAPCatalogBase):
                                                                                              rw2d_source_fraction=self._rw2d_source_fraction)
 
                 # Compute the ratio of big sources/islands using Custom/Gaussian kernel vs Rickerwavelet kernel
-                # This value can be used as a discriminant between overlapping point sources and nebulousity fields
+                # This value can be used as a discriminant between overlapping point sources and nebulosity fields
                 ratio_cg2rw_bigsource = 3.0
                 if rw_bs > 0.0:
                     ratio_cg2rw_bigsource = g_bs / rw_bs
@@ -1693,14 +1693,14 @@ class HAPSegmentCatalog(HAPCatalogBase):
                         # deblending for an unreasonable amount of time (days).
                         #
                         # Also, the ratio_cg2rw_bigsource is indicative of overlapping PSFs versus large
-                        # areas of nebulousity. If this ratio is approximately > 2, then deblending can be
+                        # areas of nebulosity. If this ratio is approximately > 2, then deblending can be
                         # quite efficient and successful for the overlapping PSF case.
                         #
                         # Use the Round 2 RickerWavelet segmentation image
                         if not rw_is_big_crowded or (rw_is_big_crowded and (ratio_cg2rw_bigsource > self._ratio_bigsource_limit)):
                             log.info("The Round 2 of segmentation images may still contain big sources/islands.\n"
                                      "However, the ratio between the Custom/Gaussian and Rickerwavelet biggest source is\n"
-                                     "indicative of overlapping PSFs vs nebulousity.")
+                                     "indicative of overlapping PSFs vs nebulosity.")
                             log.info("Proceeding as the time to deblend should be nominal.")
                             self.kernel = rw2d_kernel
                             segm_img = copy.deepcopy(rw_segm_img)

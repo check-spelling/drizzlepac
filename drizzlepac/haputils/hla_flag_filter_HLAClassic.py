@@ -78,8 +78,8 @@ y_limit = 2051.
 
 
 @util.with_logging
-def run_source_list_flaging(all_drizzled_filelist, filter_sorted_flt_dict,param_dict, exp_dictionary_scis,
-                            dict_newTAB_matched2drz, phot_table_matched2drz, proc_type, drz_root_dir, debug=True):
+def run_source_list_flagging(all_drizzled_filelist, filter_sorted_flt_dict,param_dict, exp_dictionary_scis,
+                             dict_newTAB_matched2drz, phot_table_matched2drz, proc_type, drz_root_dir, debug=True):
     """Simple calling subroutine that executes the other flagging subroutines.
 
     Parameters
@@ -121,11 +121,11 @@ def run_source_list_flaging(all_drizzled_filelist, filter_sorted_flt_dict,param_
     # -----------------------
     log.info("************************** * * * HLA_FLAG_FILTER * * * **************************")
 
-    drizzled_image = all_drizzled_filelist[0] # TODO: remove once all code is dictinary-independant
-    catalog_name = dict_newTAB_matched2drz[drizzled_image] # TODO: remove once all code is dictinary-independant
-    catalog_data = phot_table_matched2drz[drizzled_image] # TODO: remove once all code is dictinary-independant
-    for filt_key in filter_sorted_flt_dict.keys(): flt_list = filter_sorted_flt_dict[filt_key] # TODO: remove once all code is dictinary-independant
-    exptime = exp_dictionary_scis[drizzled_image] # TODO: remove once all code is dictinary-independant
+    drizzled_image = all_drizzled_filelist[0] # TODO: remove once all code is dictionary-independent
+    catalog_name = dict_newTAB_matched2drz[drizzled_image] # TODO: remove once all code is dictionary-independent
+    catalog_data = phot_table_matched2drz[drizzled_image] # TODO: remove once all code is dictionary-independent
+    for filt_key in filter_sorted_flt_dict.keys(): flt_list = filter_sorted_flt_dict[filt_key] # TODO: remove once all code is dictionary-independent
+    exptime = exp_dictionary_scis[drizzled_image] # TODO: remove once all code is dictionary-independent
 
     # -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
     # Flag sources based on concentration index.
@@ -267,8 +267,8 @@ def ci_filter(drizzled_image, catalog_name, catalog_data, proc_type, param_dict,
         # Write out list of ONLY failed rows to to file
         catalog_name_failed = catalog_name_root + '_Failed-CI.txt'
         catalog_data_failed = catalog_data.copy()
-        all_indicies = range(0, len(catalog_data))
-        rows_to_remove = [z for z in all_indicies if z not in failed_index_list]
+        all_indices = range(0, len(catalog_data))
+        rows_to_remove = [z for z in all_indices if z not in failed_index_list]
         catalog_data_failed.remove_rows(rows_to_remove)
         catalog_data_failed.write(catalog_name_failed,delimiter=",",format='ascii')
 
@@ -1208,7 +1208,7 @@ def HLANexpFlags(drizzled_image, flt_list, param_dict, catalog_name, catalog_dat
     if channel == 'SBC':
         ndrizim=getheader(drizzled_image,0)['NDRIZIM']
         ncombine = ndrizim
-    ctxarray = arrayfy_ctx(ctx, ncombine)
+    ctxarray = arrayify_ctx(ctx, ncombine)
 
     nexp_array_ctx = ctxarray.sum(axis=-1)
     nexp_image_ctx = drizzled_image.split('.')[0]+'_NCTX.fits'
@@ -1331,11 +1331,11 @@ def HLANexpFlags(drizzled_image, flt_list, param_dict, catalog_name, catalog_dat
 
 
 # +++++++++++++++++++++++++++++++++++++++ OLD VERSIONS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# These subroutines are the older versions of the subroutines that did not use persistant in-memory storage of the catalogs.
-def run_source_list_flaging_OLD(all_drizzled_filelist, working_hla_red, filter_sorted_flt_dict, param_dict,
-                                readnoise_dictionary_drzs, scale_dict_drzs, zero_point_AB_dict, exp_dictionary_scis,
-                                detection_image, dict_newTAB_matched2drz, phot_table_matched2drz, proc_type,
-                                drz_root_dir,rms_dict):
+# These subroutines are the older versions of the subroutines that did not use persistent in-memory storage of the catalogs.
+def run_source_list_flagging_OLD(all_drizzled_filelist, working_hla_red, filter_sorted_flt_dict, param_dict,
+                                 readnoise_dictionary_drzs, scale_dict_drzs, zero_point_AB_dict, exp_dictionary_scis,
+                                 detection_image, dict_newTAB_matched2drz, phot_table_matched2drz, proc_type,
+                                 drz_root_dir,rms_dict):
     """Simple calling subroutine that executes the other flagging subroutines. OLDER FILE-BASED VERSIONS!
 
     Parameters
@@ -2577,7 +2577,7 @@ def HLANexpFlags_OLD(all_drizzled_filelist, working_hla_red, filter_sorted_flt_d
         if channel == 'SBC':
             ndrizim = getheader(drizzled_image, 0)['NDRIZIM']
             ncombine = ndrizim
-        ctxarray = arrayfy_ctx(ctx, ncombine)
+        ctxarray = arrayify_ctx(ctx, ncombine)
 
         nexp_array_ctx = ctxarray.sum(axis=-1)
         nexp_image_ctx = drizzled_image.split('.')[0] + '_NCTX.fits'
@@ -2850,7 +2850,7 @@ def get_component_drz_list(drizzled_image, drz_root_dir, flt_file_names):
 
 # =============================================================================
 # -----------------------------------------------------------------------------
-# ------------------------ AUXILLIARY FUNCTIONS BELOW -------------------------
+# ------------------------- AUXILIARY FUNCTIONS BELOW -------------------------
 # -----------------------------------------------------------------------------
 # =============================================================================
 
@@ -2914,7 +2914,7 @@ def xymatch(cat1, cat2, sep, multiple=False, stack=True, verbose=True):
 
     Returns
     -------
-    Varies; Depending on inputs, either just 'p2', or 'p1' and 'p2'. p1 and p2 are lists of matched indicies
+    Varies; Depending on inputs, either just 'p2', or 'p1' and 'p2'. p1 and p2 are lists of matched indices
     """
     if not (isinstance(cat1, numpy.ndarray) and len(cat1.shape)==2 and cat1.shape[1]==2):
         raise ValueError("cat1 must be a [N,2] array")
@@ -3139,7 +3139,7 @@ def extract_name(stringWpath):
     return stringname
 
 # ======================================================================================================================
-def arrayfy_ctx(ctx, maxindex):
+def arrayify_ctx(ctx, maxindex):
 
     """Function to turn the context array returned by AstroDrizzle
     into a bit datacube with the third dimension equal to maxindex.

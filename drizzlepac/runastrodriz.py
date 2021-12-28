@@ -69,7 +69,7 @@ W.J. Hack  24 Aug 2012: Provided interface for in-memory option
 
 W.J. Hack  26 Nov 2012: Option to write out headerlets added and debugged
 
-W.J. Hack  18 Oct 2019: Impelemented multi-stage alignment with verification
+W.J. Hack  18 Oct 2019: Implemented multi-stage alignment with verification
 
 """
 # Import standard Python modules
@@ -1012,7 +1012,7 @@ def verify_alignment(inlist, calfiles, calfiles_flc, trlfile,
                     else:
                         _trlmsg += "No absolute astrometric headerlet applied to {}\n".format(fltfile)
 
-            # Finally, append any further messages associated with alignement from this calling routine
+            # Finally, append any further messages associated with alignment from this calling routine
             _trlmsg += _timestamp('Align_to_GAIA completed ')
             _updateTrlFile(trlfile, _trlmsg)
 

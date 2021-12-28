@@ -197,14 +197,14 @@ def compute_stats(diff_ra, title):
     
 # =======================================================================================================================
 def generate_sorted_region_file(diff_ra, ref_xy, comp_xy, ref_flags, comp_flags):
-    # #subtact off 3x3 sigma-clipped mean to eliminate any large-scale systemic offsets
+    # #subtract off 3x3 sigma-clipped mean to eliminate any large-scale systemic offsets
     # sigma = 3
     # n_iters = 3
     # clipped_stats = sigma_clipped_stats(diff_ra, sigma=sigma, maxiters=n_iters)
     # diff_ra_meansub = diff_ra - clipped_stats[0]
     #
-    # # get indicies of above array sorted by absolute value
-    # # actual array still maintains sign (i.e. positive or negitve value)
+    # # get indices of above array sorted by absolute value
+    # # actual array still maintains sign (i.e. positive or negative value)
     # sorted_idx = np.argsort(abs(diff_ra_meansub))[::-1]
     sorted_idx = np.argsort(abs(diff_ra))[::-1]
     region_filename = "testout.reg"
@@ -262,7 +262,7 @@ if __name__ == "__main__":
                         help='A space-separated pair of sourcelists to compare. The first sourcelist is '
                              'assumed to be the reference sourcelist that the second is being compared to.')
     parser.add_argument('-i', '--img_list', nargs=2, required=True,
-                        help='A space-seperated list of containing the reference and comparison images '
+                        help='A space-separated list of containing the reference and comparison images '
                              'that correspond to reference and comparison sourcelists')
     parser.add_argument('-d', '--diagnostic_mode', required=False, action='store_true',
                         help='If this option is turned on, region files will be created to test the quality '

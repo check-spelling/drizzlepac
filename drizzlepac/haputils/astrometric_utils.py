@@ -926,11 +926,11 @@ def extract_sources(img, dqmask=None, fwhm=3.0, kernel=None, photmode=None,
     source_box : int
         Size of box (in pixels) which defines the minimum size of a valid source.
     classify : bool
-        Specify whether or not to apply classification based on invarient moments
+        Specify whether or not to apply classification based on invariant moments
         of each source to determine whether or not a source is likely to be a
         cosmic-ray, and not include those sources in the final catalog.
     centering_mode : str
-        "segmentaton" or "starfind"
+        "segmentation" or "starfind"
         Algorithm to use when computing the positions of the detected sources.
         Centering will only take place after `threshold` has been determined, and
         sources are identified using segmentation.  Centering using `segmentation`
@@ -1206,7 +1206,7 @@ def crclean_image(imgarr, segment_threshold, kernel, fwhm,
     imgarr[cr_mask] = background[cr_mask]
     del cr_segm
 
-    log.debug("Finshed zeroing out cosmic-rays")
+    log.debug("Finished zeroing out cosmic-rays")
 
     return imgarr
 
@@ -2116,7 +2116,7 @@ def build_focus_dict(singlefiles, prodfile, sigma=2.0):
     focus_dict['prod'].append(float(focus_val))
     focus_dict['prod_pos'] = (int(focus_pos[0][0]), int(focus_pos[1][0]))
 
-    # Determine statistics for evalaution
+    # Determine statistics for evaluation
     exparr = np.array(focus_dict['exp'])
     focus_dict['stats'] = {'mean': exparr.mean(), 'std': exparr.std(),
                            'min': exparr.min(), 'max': exparr.max()}

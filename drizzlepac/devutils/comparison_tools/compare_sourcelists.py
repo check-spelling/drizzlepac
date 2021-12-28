@@ -665,9 +665,9 @@ def make_flag_mask(matched_flag_values, good_flag_sum, missing_mask):
         bad_bit_list = np.invert(good_bit_list.astype(bool)) # invert good bit list to make bad bit list
     ctr = 0
     for refFlagVal, compFlagVal in zip(matched_flag_values[0], matched_flag_values[1]):
-        refFlag_list = deconstruct_flag(refFlagVal) # break ref flag bit sum into list of componant bits
+        refFlag_list = deconstruct_flag(refFlagVal) # break ref flag bit sum into list of component bits
         full_refFlag_list.append(refFlag_list)
-        compFlag_list = deconstruct_flag(compFlagVal) # break comp flag bit sum into list of componant bits
+        compFlag_list = deconstruct_flag(compFlagVal) # break comp flag bit sum into list of component bits
         full_compFlag_list.append(compFlag_list)
         if good_flag_sum != 255:
             merged_flag_val = np.logical_or(refFlag_list, compFlag_list) # merge comp and ref flag lists
@@ -896,16 +896,16 @@ def makeVectorPlot(x, y, plate_scale, plotDest, plotfile_prefix, catalog_names, 
         p_dx = np.empty(shape=[0])
         p_dy = np.empty(shape=[0])
         color_ra = []
-        for xBinCtr in range(int(round2ArbatraryBase(xmin, "down", binSize)),
-                             int(round2ArbatraryBase(max(x[0, :]), "up", binSize)), binSize):
-            for yBinCtr in range(int(round2ArbatraryBase(ymin, "down", binSize)),
-                                 int(round2ArbatraryBase(max(y[0, :]), "up", binSize)), binSize):
+        for xBinCtr in range(int(round2ArbitraryBase(xmin, "down", binSize)),
+                             int(round2ArbitraryBase(max(x[0, :]), "up", binSize)), binSize):
+            for yBinCtr in range(int(round2ArbitraryBase(ymin, "down", binSize)),
+                                 int(round2ArbitraryBase(max(y[0, :]), "up", binSize)), binSize):
                 # define bin box x,y upper and lower bounds
                 xBinMin = xBinCtr
                 xBinMax = xBinMin + binSize
                 yBinMin = yBinCtr
                 yBinMax = yBinMin + binSize
-                # get indicies of x and y within bounding box
+                # get indices of x and y within bounding box
                 ix0 = np.where((x[0, :] >= xBinMin) & (x[0, :] < xBinMax) & (y[0, :] >= yBinMin) & (y[0, :] < yBinMax))
                 if len(dx[ix0]) > 0 and len(dy[ix0]) > 0:  # ignore empty bins
                     p_x = np.append(p_x, xBinCtr + 0.5 * binSize)  # X and Y position at center of bin.
@@ -965,7 +965,7 @@ def makeVectorPlot(x, y, plate_scale, plotDest, plotfile_prefix, catalog_names, 
 
 
 # -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
-def round2ArbatraryBase(value, direction, roundingBase):
+def round2ArbitraryBase(value, direction, roundingBase):
     """Round value up or down to arbitrary base
 
     Parameters
@@ -1790,7 +1790,7 @@ if __name__ == "__main__":
     # optional input arguments
     PARSER.add_argument('-d', '--debugMode', required=False, choices=["True", "False"], default="False",
                         help="Turn on debug mode? Default value is False.")
-    PARSER.add_argument('-g', '--goodFlagSum', required=False, default=255, help = "a sum of individual bit values (i.e. 0 + 1 + 2 + 4 = 7) that will be considered 'good'. If any of the flag bits for a given set of matched sources contain bits not specified here, the pair will be ignored by the comparisons. See XXX for flag bit definitions. (NOTE: The default value of 255 will be interperated as all bits are good, so no sources will be excluded)")
+    PARSER.add_argument('-g', '--goodFlagSum', required=False, default=255, help = "a sum of individual bit values (i.e. 0 + 1 + 2 + 4 = 7) that will be considered 'good'. If any of the flag bits for a given set of matched sources contain bits not specified here, the pair will be ignored by the comparisons. See XXX for flag bit definitions. (NOTE: The default value of 255 will be interpreted as all bits are good, so no sources will be excluded)")
     PARSER.add_argument('-i', '--imageNames', required=False, nargs=2,
                         help='A space-separated list of the fits images that were used to generate the input sourcelists. The first image corresponds to the first listed sourcelist, and so in. These will be used to improve the sourcelist alignment and matching.')
     PARSER.add_argument('-ji', '--input_json_filename', required=False,default=None,help="name of input diagnostic_utils json file to use for test duplication purposes. If not specified, it is assumed that the user intends to run the script with new inputs, and should specify sourcelist names and image names.")  # TODO: Reads sort of clunky. Rewrite to sound better.

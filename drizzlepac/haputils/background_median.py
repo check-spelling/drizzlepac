@@ -61,7 +61,7 @@ def aperture_stats_tbl(data, apertures, method='exact', sigma_clip=True):
         The data for the image to be measured.
 
     apertures : photutils PixelAperture object (or subclass)
-        The phoutils aperture object to measure the stats in. i.e. the object returned via CirularAperture,
+        The photutils aperture object to measure the stats in. i.e. the object returned via CircularAperture,
         CircularAnnulus, or RectangularAperture etc.
 
     method : sting
@@ -76,7 +76,7 @@ def aperture_stats_tbl(data, apertures, method='exact', sigma_clip=True):
     Returns
     -------
     stats_tbl : astropy table
-        An astropy Table with the colums X, Y, aperture_mean, aperture_median, aperture_mode, aperture_std,
+        An astropy Table with the columns X, Y, aperture_mean, aperture_median, aperture_mode, aperture_std,
         aperture_area and a row for each of the positions of the apertures.
     """
 
@@ -116,7 +116,7 @@ def calc_aperture_mmm(data, mask, sigma_clip):
 
     Returns
     -------
-    mean : flaot
+    mean : float
         Mean pixel value
 
     median : float

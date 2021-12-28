@@ -112,7 +112,7 @@ class baseImageObject:
 
         self._image = empty_image
 
-        #we actuallly want to make sure that all the
+        #we actually want to make sure that all the
         #data extensions have been closed and deleted
         #since we could have the DQ,ERR and others read in
         #at this point, but I'd like there to be something
@@ -254,7 +254,7 @@ class baseImageObject:
 
             Ok, I added another option. If you want to get all the data
             extensions EXCEPT a particular one, leave extname=NONE and
-            set exclude=EXTNAME. This is helpfull cause you might not know
+            set exclude=EXTNAME. This is helpful cause you might not know
             all the extnames the image has, this will find out and exclude
             the one you do not want overwritten.
         """
@@ -713,7 +713,7 @@ class baseImageObject:
 
         We should overload this function in the instrument specific
         implementations so that we can add other stuff to the badpixel
-        mask? Like vignetting areas and chip boundries in nicmos which
+        mask? Like vignetting areas and chip boundaries in nicmos which
         are camera dependent? these are not defined in the DQ masks, but
         should be masked out to get the best results in multidrizzle.
         """
@@ -929,7 +929,7 @@ class baseImageObject:
             value = None
 
         if value and (keyword is not None and keyword.strip() != ''):
-            exceptionMessage = "ERROR: Your input is ambiguous!  Please specify either a value or a keyword.\n  You specifed both " + str(value) + " and " + str(keyword)
+            exceptionMessage = "ERROR: Your input is ambiguous!  Please specify either a value or a keyword.\n  You specified both " + str(value) + " and " + str(keyword)
             raise ValueError(exceptionMessage)
 
         elif value is not None and value != '':

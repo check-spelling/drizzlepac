@@ -908,7 +908,7 @@ def transform_coords(filtobj_subdict, xmatch_ref_imgname, log_level=logutil.logg
     # Initiate logging!
     log.setLevel(log_level)
 
-    # 1: stack up xcentroid and ycentorid columns from sources table
+    # 1: stack up xcentroid and ycentroid columns from sources table
     xy_centroid_values = np.stack((filtobj_subdict['sources']['xcentroid'],
                                    filtobj_subdict['sources']['ycentroid']), axis=1)
 
@@ -998,7 +998,7 @@ def find_gaia_sources(hap_obj, json_timestamp=None, json_time_since_epoch=None,
 
 
 def find_hap_point_sources(filt_obj, log_level=logutil.logging.NOTSET):
-    """Identifies point sources in HAP imagery products and returns a dictionary containg **filt_obj** and
+    """Identifies point sources in HAP imagery products and returns a dictionary containing **filt_obj** and
     a catalog of identified sources.
 
     Parameters
@@ -1603,7 +1603,7 @@ def run_hla_sourcelist_comparison(total_list, diagnostic_mode=False, json_timest
     """
     log.setLevel(log_level)
     log.info('\n\n*****     Begin Quality Analysis Test: run_hla_sourcelist_comparison.     *****\n')
-    # get HLA classic path details from envroment variables
+    # get HLA classic path details from environment variables
     hla_classic_basepath = os.getenv('HLA_CLASSIC_BASEPATH')
     hla_build_ver = os.getenv("HLA_BUILD_VER")
     for tot_obj in total_list:
@@ -1712,7 +1712,7 @@ def correct_hla_classic_ra_dec(orig_hla_classic_sl_name, hap_imgname, cattype, l
         dataset = mod_sl_name.replace("_{}phot.txt".format(cattype), "")
         modcat = read_hla_catalog.read_hla_catalog(dataset, cattype=cattype, applyomega=True, multiwave=False,
                                                    verbose=True, trim=False, log_level=log_level)
-        # sort catalog with updated RA, DEC values so that ordering is the same as the uncorrected table and everything maps correclty.
+        # sort catalog with updated RA, DEC values so that ordering is the same as the uncorrected table and everything maps correctly.
         if cattype == "dao":
             sortcoltitle = "ID"
             x_coltitle = "X-Center"

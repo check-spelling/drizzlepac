@@ -58,7 +58,7 @@ def run(configObj=None, input_dict={}, loadOnly=False):
     if configObj is None:
         return
     # Define list of imageObject instances and output WCSObject instance
-    # based on input paramters
+    # based on input parameters
     imgObjList,outwcs = processInput.setCommonInput(configObj)
 
     # Build DQ masks for all input images.
@@ -199,7 +199,7 @@ def buildShadowMaskImage(dqfile,detnum,extnum,maskname,bitvalue=None,binned=1):
 
     _use_inmask = not fileutil.findFile(dqfile) or bitvalue is None
 
-    # Check for existance of input .c1h file for use in making inmask file
+    # Check for existence of input .c1h file for use in making inmask file
     if _use_inmask:
         #_mask = 'wfpc2_inmask'+detnum+'.fits'
         _mask = maskname

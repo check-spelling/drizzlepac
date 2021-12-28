@@ -77,7 +77,7 @@ driz_sep_wt_scl : float (Default = exptime)
     If `driz_sep_wt_scl`\ =\ ``exptime``, then the scaling value will be set
     equal to the exposure time found in the image header. The use of the
     default value is recommended for producing optimal behavior for most
-    scenarious. It is possible to set `wt_scl`\ =\ 'expsq' for weighting by
+    scenarios. It is possible to set `wt_scl`\ =\ 'expsq' for weighting by
     the square of the exposure time, which is optimal for read-noise
     dominated images.
 
@@ -112,7 +112,7 @@ driz_sep_bits : int (Default = 0)
     on Selecting the `Bits` Parameter for a more detailed discussion.
 
 driz_sep_wcs : bool (Default = No)
-    Define custom WCS for seperate output images?
+    Define custom WCS for separate output images?
 
 driz_sep_refimage : str (Default = '')
     Reference image from which a WCS solution can be obtained.
@@ -156,11 +156,11 @@ driz_sep_dec : float (Default = INDEF)
 
 Notes
 -----
-These tasks are designed to work together seemlessly when run in the
+These tasks are designed to work together seamlessly when run in the
 full ``AstroDrizzle`` interface. More advanced users may wish to create
 specialized scripts for their own datasets, making use of only a subset
 of the predefined ``AstroDrizzle`` tasks, or add additional processing,
-which may be usefull for their particular data. In these cases,
+which may be useful for their particular data. In these cases,
 individual access to the tasks is important.
 
 Something to keep in mind is that the full ``AstroDrizzle`` interface
@@ -171,7 +171,7 @@ already taken care of backing up their original datafiles as the input
 file with be directly altered.
 
 There are two user interface function for this task, one to allow you to
-create seperately drizzled images of each image in your list and the other
+create separately drizzled images of each image in your list and the other
 to create one single output drizzled image, which is the combination of all
 of them::
 

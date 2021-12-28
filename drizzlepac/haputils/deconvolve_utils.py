@@ -146,7 +146,7 @@ def _perform_deconv(img_block, psf, alpha):
     # U^H d
     D = np.fft.fft2(img_block)
 
-    # -dampped spectral components,
+    # -damped spectral components,
     # -also known as Wiener filtering
     # (conj(S)/(|S|^2 + alpha^2)) U^H d
     M = (np.conj(P) / (np.abs(P)**2.0 + alpha**2.0)) * D
@@ -299,7 +299,7 @@ def rebuild_arr(block_arr, slices, new_shape, output_shape):
 
 
 def find_psf(imgname, path_root=None):
-    """Pull PSF from library based on unique combination of intrument/detector/filter.
+    """Pull PSF from library based on unique combination of instrument/detector/filter.
 
     Parameters
     ===========

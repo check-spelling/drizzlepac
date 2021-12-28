@@ -5,7 +5,7 @@
 # spacing of 1. The first element of each row of data is assumed to contain
 # the second derivative of the data at x = 1. The nxpix + 2-th element of each
 # row is assumed to contain the second derivative of the function at x = nxpix.
-# Therfore if each row of data contains nxpix points, nxpix+2 B-spline
+# Therefore if each row of data contains nxpix points, nxpix+2 B-spline
 # coefficients will be calculated. The univariate B-spline coefficients
 # for the i-th row of data are output to the i-th column of coeff.
 # Therefore two calls to II_SPLINE2D are required to calculate the 2D B-spline
@@ -48,7 +48,7 @@ begin
 	    do i = 3, nxpix + 1
 		coeff[j,i] = Memr[diag+i-1] * (coeff[j,i] - coeff[j,i-1])
 
-	    # back subsitution
+	    # back substitution
 	    coeff[j,nxpix+2] = ((Memr[diag+nxpix-1] + 2.) * coeff[j,nxpix+1] -
 		coeff[j,nxpix] + coeff[j,nxpix+2] / 6.) /
 		(1. + Memr[diag+nxpix] * (Memr[diag+nxpix-1] + 2.))

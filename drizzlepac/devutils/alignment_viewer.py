@@ -6,7 +6,7 @@ the number of tests found along with stats on the number of various types of
 WCS solutions in the final drizzle products.  A separate page will then be generated
 for each dataset with either a DRZ or DRC product.  That page will contain:
     - a full-frame view of the final product image
-    - a view of the centeral 256x256 region from the final product image
+    - a view of the central 256x256 region from the final product image
     - positions of any GAIA catalog sources overplotted on both images
     - a summary of the product; including:
         * WCSNAME
@@ -31,7 +31,7 @@ Alternatively, a single dataset can be summarized by simply using:
 
 >>> from drizzlepac.devutils import alignment_viewer
 >>> figure = create_product_page("iaal01hxq/iaal01hxq_drc.fits")
->>> figure.savefig("iaal01hxq_summmary.pdf")  # to write out a PDF file
+>>> figure.savefig("iaal01hxq_summary.pdf")  # to write out a PDF file
 
 
 """

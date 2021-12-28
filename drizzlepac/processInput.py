@@ -513,7 +513,7 @@ def processFilenames(input=None,output=None,infilesOnly=False):
 
     # sort the list of input files
     # this ensures the list of input files has the same order on all platforms
-    # it can have ifferent order because listdir() uses inode order, not unix type order
+    # it can have different order because listdir() uses inode order, not unix type order
     #filelist.sort()
 
 
@@ -734,7 +734,7 @@ def buildASNList(rootnames, asnname, check_for_duplicates=True):
         errstr += ('\nNew association files have been generated for each '
                    'version of these files.\n    %s\n    %s\n\nPlease '
                    're-start astrodrizzle using of these new ASN files or '
-                   'use widlcards for the input to only select one type of '
+                   'use wildcards for the input to only select one type of '
                    'input file.' % (dupasn, origasn))
 
         print(textutil.textbox(errstr), file=sys.stderr)
@@ -930,7 +930,7 @@ def buildEmptyDRZ(input, output):
     Create an empty DRZ file.
 
     This module creates an empty DRZ file in a valid FITS format so that the HST
-    pipeline can handle the Multidrizzle zero expossure time exception
+    pipeline can handle the Multidrizzle zero exposure time exception
     where all data has been excluded from processing.
 
     Parameters
@@ -964,7 +964,7 @@ def buildEmptyDRZ(input, output):
         if '_drz' not in output:
             output = fileutil.buildNewRootname(output, extn='_drz.fits')
 
-    print('Building emtpy DRZ file with output name: %s' % output)
+    print('Building empty DRZ file with output name: %s' % output)
 
     # Open the first image (of the excludedFileList?) to use as a template to build
     # the DRZ file.

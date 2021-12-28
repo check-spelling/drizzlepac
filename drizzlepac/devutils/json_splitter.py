@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""searches through hap_pars subdirectory tree and splits the json file 'default_values' dictinary into one
+"""searches through hap_pars subdirectory tree and splits the json file 'default_values' dictionary into one
 file, and the 'parameter_values' into another."""
 
 import json
@@ -8,7 +8,7 @@ import os
 from pathlib import Path
 import pdb
 
-# build hap_path full path and recursivly find all .json pars files
+# build hap_path full path and recursively find all .json pars files
 code_dir = os.path.abspath(__file__)
 base_dir = os.path.dirname(os.path.dirname(code_dir))
 full_pars_path = os.path.join(base_dir, "pars/hap_pars")
